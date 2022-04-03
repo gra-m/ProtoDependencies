@@ -1,4 +1,7 @@
-package fun.madeby.models;
+package fun.madeby.protobuf;
+
+
+import fun.madeby.models.Person;
 
 import java.io.IOException;
 import java.nio.file.Files;
