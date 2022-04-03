@@ -1,7 +1,7 @@
 syntax = "proto3";
-//Create not only proto PersonOuterClass.java in target but also Person.java
+//Creates not only proto PersonOuterClass.java in target but also Person.java under directory java
 option java_multiple_files = true;
-//To create package for all proto classes
+//To create a package for all proto classes give the package info
 option java_package = "fun.madeby.models";
 
 message Person {
