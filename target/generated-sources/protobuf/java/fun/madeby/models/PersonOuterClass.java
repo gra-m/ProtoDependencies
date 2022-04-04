@@ -15,6 +15,16 @@ public final class PersonOuterClass {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Car_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Car_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Address_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Address_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Person_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -28,9 +38,13 @@ public final class PersonOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\014person.proto\"#\n\006Person\022\014\n\004name\030\001 \001(\t\022\013" +
-      "\n\003age\030\002 \001(\005B\025\n\021fun.madeby.modelsP\001b\006prot" +
-      "o3"
+      "\n\014person.proto\"G\n\003Car\022\014\n\004make\030\001 \001(\t\022\r\n\005m" +
+      "odel\030\002 \001(\t\022\014\n\004year\030\003 \001(\005\022\025\n\ravMarketValu" +
+      "e\030\004 \001(\001\"E\n\007Address\022\016\n\006number\030\001 \001(\005\022\016\n\006st" +
+      "reet\030\002 \001(\t\022\014\n\004city\030\003 \001(\t\022\014\n\004code\030\004 \001(\t\"Q" +
+      "\n\006Person\022\014\n\004name\030\001 \001(\t\022\013\n\003age\030\002 \001(\005\022\031\n\007a" +
+      "ddress\030\003 \001(\0132\010.Address\022\021\n\003car\030\004 \001(\0132\004.Ca" +
+      "rB\025\n\021fun.madeby.modelsP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -44,12 +58,24 @@ public final class PersonOuterClass {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_Person_descriptor =
+    internal_static_Car_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_Car_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Car_descriptor,
+        new java.lang.String[] { "Make", "Model", "Year", "AvMarketValue", });
+    internal_static_Address_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_Address_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Address_descriptor,
+        new java.lang.String[] { "Number", "Street", "City", "Code", });
+    internal_static_Person_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_Person_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Person_descriptor,
-        new java.lang.String[] { "Name", "Age", });
+        new java.lang.String[] { "Name", "Age", "Address", "Car", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

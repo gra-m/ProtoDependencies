@@ -55,6 +55,32 @@ private static final long serialVersionUID = 0L;
             age_ = input.readInt32();
             break;
           }
+          case 26: {
+            fun.madeby.models.Address.Builder subBuilder = null;
+            if (address_ != null) {
+              subBuilder = address_.toBuilder();
+            }
+            address_ = input.readMessage(fun.madeby.models.Address.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(address_);
+              address_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 34: {
+            fun.madeby.models.Car.Builder subBuilder = null;
+            if (car_ != null) {
+              subBuilder = car_.toBuilder();
+            }
+            car_ = input.readMessage(fun.madeby.models.Car.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(car_);
+              car_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownFieldProto3(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -130,6 +156,48 @@ private static final long serialVersionUID = 0L;
     return age_;
   }
 
+  public static final int ADDRESS_FIELD_NUMBER = 3;
+  private fun.madeby.models.Address address_;
+  /**
+   * <code>.Address address = 3;</code>
+   */
+  public boolean hasAddress() {
+    return address_ != null;
+  }
+  /**
+   * <code>.Address address = 3;</code>
+   */
+  public fun.madeby.models.Address getAddress() {
+    return address_ == null ? fun.madeby.models.Address.getDefaultInstance() : address_;
+  }
+  /**
+   * <code>.Address address = 3;</code>
+   */
+  public fun.madeby.models.AddressOrBuilder getAddressOrBuilder() {
+    return getAddress();
+  }
+
+  public static final int CAR_FIELD_NUMBER = 4;
+  private fun.madeby.models.Car car_;
+  /**
+   * <code>.Car car = 4;</code>
+   */
+  public boolean hasCar() {
+    return car_ != null;
+  }
+  /**
+   * <code>.Car car = 4;</code>
+   */
+  public fun.madeby.models.Car getCar() {
+    return car_ == null ? fun.madeby.models.Car.getDefaultInstance() : car_;
+  }
+  /**
+   * <code>.Car car = 4;</code>
+   */
+  public fun.madeby.models.CarOrBuilder getCarOrBuilder() {
+    return getCar();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -150,6 +218,12 @@ private static final long serialVersionUID = 0L;
     if (age_ != 0) {
       output.writeInt32(2, age_);
     }
+    if (address_ != null) {
+      output.writeMessage(3, getAddress());
+    }
+    if (car_ != null) {
+      output.writeMessage(4, getCar());
+    }
     unknownFields.writeTo(output);
   }
 
@@ -165,6 +239,14 @@ private static final long serialVersionUID = 0L;
     if (age_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(2, age_);
+    }
+    if (address_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, getAddress());
+    }
+    if (car_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, getCar());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -186,6 +268,16 @@ private static final long serialVersionUID = 0L;
         .equals(other.getName());
     result = result && (getAge()
         == other.getAge());
+    result = result && (hasAddress() == other.hasAddress());
+    if (hasAddress()) {
+      result = result && getAddress()
+          .equals(other.getAddress());
+    }
+    result = result && (hasCar() == other.hasCar());
+    if (hasCar()) {
+      result = result && getCar()
+          .equals(other.getCar());
+    }
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -201,6 +293,14 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + AGE_FIELD_NUMBER;
     hash = (53 * hash) + getAge();
+    if (hasAddress()) {
+      hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getAddress().hashCode();
+    }
+    if (hasCar()) {
+      hash = (37 * hash) + CAR_FIELD_NUMBER;
+      hash = (53 * hash) + getCar().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -338,6 +438,18 @@ private static final long serialVersionUID = 0L;
 
       age_ = 0;
 
+      if (addressBuilder_ == null) {
+        address_ = null;
+      } else {
+        address_ = null;
+        addressBuilder_ = null;
+      }
+      if (carBuilder_ == null) {
+        car_ = null;
+      } else {
+        car_ = null;
+        carBuilder_ = null;
+      }
       return this;
     }
 
@@ -366,6 +478,16 @@ private static final long serialVersionUID = 0L;
       fun.madeby.models.Person result = new fun.madeby.models.Person(this);
       result.name_ = name_;
       result.age_ = age_;
+      if (addressBuilder_ == null) {
+        result.address_ = address_;
+      } else {
+        result.address_ = addressBuilder_.build();
+      }
+      if (carBuilder_ == null) {
+        result.car_ = car_;
+      } else {
+        result.car_ = carBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -420,6 +542,12 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getAge() != 0) {
         setAge(other.getAge());
+      }
+      if (other.hasAddress()) {
+        mergeAddress(other.getAddress());
+      }
+      if (other.hasCar()) {
+        mergeCar(other.getCar());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -543,6 +671,240 @@ private static final long serialVersionUID = 0L;
       age_ = 0;
       onChanged();
       return this;
+    }
+
+    private fun.madeby.models.Address address_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        fun.madeby.models.Address, fun.madeby.models.Address.Builder, fun.madeby.models.AddressOrBuilder> addressBuilder_;
+    /**
+     * <code>.Address address = 3;</code>
+     */
+    public boolean hasAddress() {
+      return addressBuilder_ != null || address_ != null;
+    }
+    /**
+     * <code>.Address address = 3;</code>
+     */
+    public fun.madeby.models.Address getAddress() {
+      if (addressBuilder_ == null) {
+        return address_ == null ? fun.madeby.models.Address.getDefaultInstance() : address_;
+      } else {
+        return addressBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.Address address = 3;</code>
+     */
+    public Builder setAddress(fun.madeby.models.Address value) {
+      if (addressBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        address_ = value;
+        onChanged();
+      } else {
+        addressBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Address address = 3;</code>
+     */
+    public Builder setAddress(
+        fun.madeby.models.Address.Builder builderForValue) {
+      if (addressBuilder_ == null) {
+        address_ = builderForValue.build();
+        onChanged();
+      } else {
+        addressBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Address address = 3;</code>
+     */
+    public Builder mergeAddress(fun.madeby.models.Address value) {
+      if (addressBuilder_ == null) {
+        if (address_ != null) {
+          address_ =
+            fun.madeby.models.Address.newBuilder(address_).mergeFrom(value).buildPartial();
+        } else {
+          address_ = value;
+        }
+        onChanged();
+      } else {
+        addressBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Address address = 3;</code>
+     */
+    public Builder clearAddress() {
+      if (addressBuilder_ == null) {
+        address_ = null;
+        onChanged();
+      } else {
+        address_ = null;
+        addressBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Address address = 3;</code>
+     */
+    public fun.madeby.models.Address.Builder getAddressBuilder() {
+      
+      onChanged();
+      return getAddressFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.Address address = 3;</code>
+     */
+    public fun.madeby.models.AddressOrBuilder getAddressOrBuilder() {
+      if (addressBuilder_ != null) {
+        return addressBuilder_.getMessageOrBuilder();
+      } else {
+        return address_ == null ?
+            fun.madeby.models.Address.getDefaultInstance() : address_;
+      }
+    }
+    /**
+     * <code>.Address address = 3;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        fun.madeby.models.Address, fun.madeby.models.Address.Builder, fun.madeby.models.AddressOrBuilder> 
+        getAddressFieldBuilder() {
+      if (addressBuilder_ == null) {
+        addressBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            fun.madeby.models.Address, fun.madeby.models.Address.Builder, fun.madeby.models.AddressOrBuilder>(
+                getAddress(),
+                getParentForChildren(),
+                isClean());
+        address_ = null;
+      }
+      return addressBuilder_;
+    }
+
+    private fun.madeby.models.Car car_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        fun.madeby.models.Car, fun.madeby.models.Car.Builder, fun.madeby.models.CarOrBuilder> carBuilder_;
+    /**
+     * <code>.Car car = 4;</code>
+     */
+    public boolean hasCar() {
+      return carBuilder_ != null || car_ != null;
+    }
+    /**
+     * <code>.Car car = 4;</code>
+     */
+    public fun.madeby.models.Car getCar() {
+      if (carBuilder_ == null) {
+        return car_ == null ? fun.madeby.models.Car.getDefaultInstance() : car_;
+      } else {
+        return carBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.Car car = 4;</code>
+     */
+    public Builder setCar(fun.madeby.models.Car value) {
+      if (carBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        car_ = value;
+        onChanged();
+      } else {
+        carBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Car car = 4;</code>
+     */
+    public Builder setCar(
+        fun.madeby.models.Car.Builder builderForValue) {
+      if (carBuilder_ == null) {
+        car_ = builderForValue.build();
+        onChanged();
+      } else {
+        carBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Car car = 4;</code>
+     */
+    public Builder mergeCar(fun.madeby.models.Car value) {
+      if (carBuilder_ == null) {
+        if (car_ != null) {
+          car_ =
+            fun.madeby.models.Car.newBuilder(car_).mergeFrom(value).buildPartial();
+        } else {
+          car_ = value;
+        }
+        onChanged();
+      } else {
+        carBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Car car = 4;</code>
+     */
+    public Builder clearCar() {
+      if (carBuilder_ == null) {
+        car_ = null;
+        onChanged();
+      } else {
+        car_ = null;
+        carBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.Car car = 4;</code>
+     */
+    public fun.madeby.models.Car.Builder getCarBuilder() {
+      
+      onChanged();
+      return getCarFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.Car car = 4;</code>
+     */
+    public fun.madeby.models.CarOrBuilder getCarOrBuilder() {
+      if (carBuilder_ != null) {
+        return carBuilder_.getMessageOrBuilder();
+      } else {
+        return car_ == null ?
+            fun.madeby.models.Car.getDefaultInstance() : car_;
+      }
+    }
+    /**
+     * <code>.Car car = 4;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        fun.madeby.models.Car, fun.madeby.models.Car.Builder, fun.madeby.models.CarOrBuilder> 
+        getCarFieldBuilder() {
+      if (carBuilder_ == null) {
+        carBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            fun.madeby.models.Car, fun.madeby.models.Car.Builder, fun.madeby.models.CarOrBuilder>(
+                getCar(),
+                getParentForChildren(),
+                isClean());
+        car_ = null;
+      }
+      return carBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
