@@ -36,15 +36,26 @@ public interface PersonOrBuilder extends
   fun.madeby.models.AddressOrBuilder getAddressOrBuilder();
 
   /**
-   * <code>.Car car = 4;</code>
+   * <code>repeated .Car car = 4;</code>
    */
-  boolean hasCar();
+  java.util.List<fun.madeby.models.Car> 
+      getCarList();
   /**
-   * <code>.Car car = 4;</code>
+   * <code>repeated .Car car = 4;</code>
    */
-  fun.madeby.models.Car getCar();
+  fun.madeby.models.Car getCar(int index);
   /**
-   * <code>.Car car = 4;</code>
+   * <code>repeated .Car car = 4;</code>
    */
-  fun.madeby.models.CarOrBuilder getCarOrBuilder();
+  int getCarCount();
+  /**
+   * <code>repeated .Car car = 4;</code>
+   */
+  java.util.List<? extends fun.madeby.models.CarOrBuilder> 
+      getCarOrBuilderList();
+  /**
+   * <code>repeated .Car car = 4;</code>
+   */
+  fun.madeby.models.CarOrBuilder getCarOrBuilder(
+      int index);
 }

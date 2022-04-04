@@ -43,7 +43,7 @@ public final class PersonOuterClass {
       "e\030\004 \001(\001\"E\n\007Address\022\016\n\006number\030\001 \001(\005\022\016\n\006st" +
       "reet\030\002 \001(\t\022\014\n\004city\030\003 \001(\t\022\014\n\004code\030\004 \001(\t\"Q" +
       "\n\006Person\022\014\n\004name\030\001 \001(\t\022\013\n\003age\030\002 \001(\005\022\031\n\007a" +
-      "ddress\030\003 \001(\0132\010.Address\022\021\n\003car\030\004 \001(\0132\004.Ca" +
+      "ddress\030\003 \001(\0132\010.Address\022\021\n\003car\030\004 \003(\0132\004.Ca" +
       "rB\025\n\021fun.madeby.modelsP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =

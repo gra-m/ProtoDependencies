@@ -18,6 +18,7 @@ private static final long serialVersionUID = 0L;
   private Person() {
     name_ = "";
     age_ = 0;
+    car_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -69,16 +70,12 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 34: {
-            fun.madeby.models.Car.Builder subBuilder = null;
-            if (car_ != null) {
-              subBuilder = car_.toBuilder();
+            if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+              car_ = new java.util.ArrayList<fun.madeby.models.Car>();
+              mutable_bitField0_ |= 0x00000008;
             }
-            car_ = input.readMessage(fun.madeby.models.Car.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(car_);
-              car_ = subBuilder.buildPartial();
-            }
-
+            car_.add(
+                input.readMessage(fun.madeby.models.Car.parser(), extensionRegistry));
             break;
           }
           default: {
@@ -96,6 +93,9 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+        car_ = java.util.Collections.unmodifiableList(car_);
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -113,6 +113,7 @@ private static final long serialVersionUID = 0L;
             fun.madeby.models.Person.class, fun.madeby.models.Person.Builder.class);
   }
 
+  private int bitField0_;
   public static final int NAME_FIELD_NUMBER = 1;
   private volatile java.lang.Object name_;
   /**
@@ -178,24 +179,38 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CAR_FIELD_NUMBER = 4;
-  private fun.madeby.models.Car car_;
+  private java.util.List<fun.madeby.models.Car> car_;
   /**
-   * <code>.Car car = 4;</code>
+   * <code>repeated .Car car = 4;</code>
    */
-  public boolean hasCar() {
-    return car_ != null;
+  public java.util.List<fun.madeby.models.Car> getCarList() {
+    return car_;
   }
   /**
-   * <code>.Car car = 4;</code>
+   * <code>repeated .Car car = 4;</code>
    */
-  public fun.madeby.models.Car getCar() {
-    return car_ == null ? fun.madeby.models.Car.getDefaultInstance() : car_;
+  public java.util.List<? extends fun.madeby.models.CarOrBuilder> 
+      getCarOrBuilderList() {
+    return car_;
   }
   /**
-   * <code>.Car car = 4;</code>
+   * <code>repeated .Car car = 4;</code>
    */
-  public fun.madeby.models.CarOrBuilder getCarOrBuilder() {
-    return getCar();
+  public int getCarCount() {
+    return car_.size();
+  }
+  /**
+   * <code>repeated .Car car = 4;</code>
+   */
+  public fun.madeby.models.Car getCar(int index) {
+    return car_.get(index);
+  }
+  /**
+   * <code>repeated .Car car = 4;</code>
+   */
+  public fun.madeby.models.CarOrBuilder getCarOrBuilder(
+      int index) {
+    return car_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -221,8 +236,8 @@ private static final long serialVersionUID = 0L;
     if (address_ != null) {
       output.writeMessage(3, getAddress());
     }
-    if (car_ != null) {
-      output.writeMessage(4, getCar());
+    for (int i = 0; i < car_.size(); i++) {
+      output.writeMessage(4, car_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -244,9 +259,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getAddress());
     }
-    if (car_ != null) {
+    for (int i = 0; i < car_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(4, getCar());
+        .computeMessageSize(4, car_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -273,11 +288,8 @@ private static final long serialVersionUID = 0L;
       result = result && getAddress()
           .equals(other.getAddress());
     }
-    result = result && (hasCar() == other.hasCar());
-    if (hasCar()) {
-      result = result && getCar()
-          .equals(other.getCar());
-    }
+    result = result && getCarList()
+        .equals(other.getCarList());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -297,9 +309,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
       hash = (53 * hash) + getAddress().hashCode();
     }
-    if (hasCar()) {
+    if (getCarCount() > 0) {
       hash = (37 * hash) + CAR_FIELD_NUMBER;
-      hash = (53 * hash) + getCar().hashCode();
+      hash = (53 * hash) + getCarList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -429,6 +441,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getCarFieldBuilder();
       }
     }
     @java.lang.Override
@@ -445,10 +458,10 @@ private static final long serialVersionUID = 0L;
         addressBuilder_ = null;
       }
       if (carBuilder_ == null) {
-        car_ = null;
+        car_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
-        car_ = null;
-        carBuilder_ = null;
+        carBuilder_.clear();
       }
       return this;
     }
@@ -476,6 +489,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public fun.madeby.models.Person buildPartial() {
       fun.madeby.models.Person result = new fun.madeby.models.Person(this);
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       result.name_ = name_;
       result.age_ = age_;
       if (addressBuilder_ == null) {
@@ -484,10 +499,15 @@ private static final long serialVersionUID = 0L;
         result.address_ = addressBuilder_.build();
       }
       if (carBuilder_ == null) {
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          car_ = java.util.Collections.unmodifiableList(car_);
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
         result.car_ = car_;
       } else {
         result.car_ = carBuilder_.build();
       }
+      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
@@ -546,8 +566,31 @@ private static final long serialVersionUID = 0L;
       if (other.hasAddress()) {
         mergeAddress(other.getAddress());
       }
-      if (other.hasCar()) {
-        mergeCar(other.getCar());
+      if (carBuilder_ == null) {
+        if (!other.car_.isEmpty()) {
+          if (car_.isEmpty()) {
+            car_ = other.car_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureCarIsMutable();
+            car_.addAll(other.car_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.car_.isEmpty()) {
+          if (carBuilder_.isEmpty()) {
+            carBuilder_.dispose();
+            carBuilder_ = null;
+            car_ = other.car_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+            carBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getCarFieldBuilder() : null;
+          } else {
+            carBuilder_.addAllMessages(other.car_);
+          }
+        }
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -577,6 +620,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -790,116 +834,239 @@ private static final long serialVersionUID = 0L;
       return addressBuilder_;
     }
 
-    private fun.madeby.models.Car car_ = null;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        fun.madeby.models.Car, fun.madeby.models.Car.Builder, fun.madeby.models.CarOrBuilder> carBuilder_;
-    /**
-     * <code>.Car car = 4;</code>
-     */
-    public boolean hasCar() {
-      return carBuilder_ != null || car_ != null;
+    private java.util.List<fun.madeby.models.Car> car_ =
+      java.util.Collections.emptyList();
+    private void ensureCarIsMutable() {
+      if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+        car_ = new java.util.ArrayList<fun.madeby.models.Car>(car_);
+        bitField0_ |= 0x00000008;
+       }
     }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        fun.madeby.models.Car, fun.madeby.models.Car.Builder, fun.madeby.models.CarOrBuilder> carBuilder_;
+
     /**
-     * <code>.Car car = 4;</code>
+     * <code>repeated .Car car = 4;</code>
      */
-    public fun.madeby.models.Car getCar() {
+    public java.util.List<fun.madeby.models.Car> getCarList() {
       if (carBuilder_ == null) {
-        return car_ == null ? fun.madeby.models.Car.getDefaultInstance() : car_;
+        return java.util.Collections.unmodifiableList(car_);
       } else {
-        return carBuilder_.getMessage();
+        return carBuilder_.getMessageList();
       }
     }
     /**
-     * <code>.Car car = 4;</code>
+     * <code>repeated .Car car = 4;</code>
      */
-    public Builder setCar(fun.madeby.models.Car value) {
+    public int getCarCount() {
+      if (carBuilder_ == null) {
+        return car_.size();
+      } else {
+        return carBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .Car car = 4;</code>
+     */
+    public fun.madeby.models.Car getCar(int index) {
+      if (carBuilder_ == null) {
+        return car_.get(index);
+      } else {
+        return carBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .Car car = 4;</code>
+     */
+    public Builder setCar(
+        int index, fun.madeby.models.Car value) {
       if (carBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        car_ = value;
+        ensureCarIsMutable();
+        car_.set(index, value);
         onChanged();
       } else {
-        carBuilder_.setMessage(value);
+        carBuilder_.setMessage(index, value);
       }
-
       return this;
     }
     /**
-     * <code>.Car car = 4;</code>
+     * <code>repeated .Car car = 4;</code>
      */
     public Builder setCar(
+        int index, fun.madeby.models.Car.Builder builderForValue) {
+      if (carBuilder_ == null) {
+        ensureCarIsMutable();
+        car_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        carBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Car car = 4;</code>
+     */
+    public Builder addCar(fun.madeby.models.Car value) {
+      if (carBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureCarIsMutable();
+        car_.add(value);
+        onChanged();
+      } else {
+        carBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Car car = 4;</code>
+     */
+    public Builder addCar(
+        int index, fun.madeby.models.Car value) {
+      if (carBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureCarIsMutable();
+        car_.add(index, value);
+        onChanged();
+      } else {
+        carBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Car car = 4;</code>
+     */
+    public Builder addCar(
         fun.madeby.models.Car.Builder builderForValue) {
       if (carBuilder_ == null) {
-        car_ = builderForValue.build();
+        ensureCarIsMutable();
+        car_.add(builderForValue.build());
         onChanged();
       } else {
-        carBuilder_.setMessage(builderForValue.build());
+        carBuilder_.addMessage(builderForValue.build());
       }
-
       return this;
     }
     /**
-     * <code>.Car car = 4;</code>
+     * <code>repeated .Car car = 4;</code>
      */
-    public Builder mergeCar(fun.madeby.models.Car value) {
+    public Builder addCar(
+        int index, fun.madeby.models.Car.Builder builderForValue) {
       if (carBuilder_ == null) {
-        if (car_ != null) {
-          car_ =
-            fun.madeby.models.Car.newBuilder(car_).mergeFrom(value).buildPartial();
-        } else {
-          car_ = value;
-        }
+        ensureCarIsMutable();
+        car_.add(index, builderForValue.build());
         onChanged();
       } else {
-        carBuilder_.mergeFrom(value);
+        carBuilder_.addMessage(index, builderForValue.build());
       }
-
       return this;
     }
     /**
-     * <code>.Car car = 4;</code>
+     * <code>repeated .Car car = 4;</code>
+     */
+    public Builder addAllCar(
+        java.lang.Iterable<? extends fun.madeby.models.Car> values) {
+      if (carBuilder_ == null) {
+        ensureCarIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, car_);
+        onChanged();
+      } else {
+        carBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Car car = 4;</code>
      */
     public Builder clearCar() {
       if (carBuilder_ == null) {
-        car_ = null;
+        car_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
-        car_ = null;
-        carBuilder_ = null;
+        carBuilder_.clear();
       }
-
       return this;
     }
     /**
-     * <code>.Car car = 4;</code>
+     * <code>repeated .Car car = 4;</code>
      */
-    public fun.madeby.models.Car.Builder getCarBuilder() {
-      
-      onChanged();
-      return getCarFieldBuilder().getBuilder();
+    public Builder removeCar(int index) {
+      if (carBuilder_ == null) {
+        ensureCarIsMutable();
+        car_.remove(index);
+        onChanged();
+      } else {
+        carBuilder_.remove(index);
+      }
+      return this;
     }
     /**
-     * <code>.Car car = 4;</code>
+     * <code>repeated .Car car = 4;</code>
      */
-    public fun.madeby.models.CarOrBuilder getCarOrBuilder() {
-      if (carBuilder_ != null) {
-        return carBuilder_.getMessageOrBuilder();
-      } else {
-        return car_ == null ?
-            fun.madeby.models.Car.getDefaultInstance() : car_;
+    public fun.madeby.models.Car.Builder getCarBuilder(
+        int index) {
+      return getCarFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .Car car = 4;</code>
+     */
+    public fun.madeby.models.CarOrBuilder getCarOrBuilder(
+        int index) {
+      if (carBuilder_ == null) {
+        return car_.get(index);  } else {
+        return carBuilder_.getMessageOrBuilder(index);
       }
     }
     /**
-     * <code>.Car car = 4;</code>
+     * <code>repeated .Car car = 4;</code>
      */
-    private com.google.protobuf.SingleFieldBuilderV3<
+    public java.util.List<? extends fun.madeby.models.CarOrBuilder> 
+         getCarOrBuilderList() {
+      if (carBuilder_ != null) {
+        return carBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(car_);
+      }
+    }
+    /**
+     * <code>repeated .Car car = 4;</code>
+     */
+    public fun.madeby.models.Car.Builder addCarBuilder() {
+      return getCarFieldBuilder().addBuilder(
+          fun.madeby.models.Car.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Car car = 4;</code>
+     */
+    public fun.madeby.models.Car.Builder addCarBuilder(
+        int index) {
+      return getCarFieldBuilder().addBuilder(
+          index, fun.madeby.models.Car.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Car car = 4;</code>
+     */
+    public java.util.List<fun.madeby.models.Car.Builder> 
+         getCarBuilderList() {
+      return getCarFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
         fun.madeby.models.Car, fun.madeby.models.Car.Builder, fun.madeby.models.CarOrBuilder> 
         getCarFieldBuilder() {
       if (carBuilder_ == null) {
-        carBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+        carBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             fun.madeby.models.Car, fun.madeby.models.Car.Builder, fun.madeby.models.CarOrBuilder>(
-                getCar(),
+                car_,
+                ((bitField0_ & 0x00000008) == 0x00000008),
                 getParentForChildren(),
                 isClean());
         car_ = null;
