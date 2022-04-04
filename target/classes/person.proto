@@ -9,6 +9,7 @@ message Car {
   string model =2;
   int32 year = 3;
   double avMarketValue = 4;
+  BodyStyle body_style = 5;
 }
 
 message Address {
@@ -27,4 +28,11 @@ message Person {
 
 message Dealer {
   map<int32, Car> model = 1;
+}
+
+enum BodyStyle {
+  DEFAULT = 0;
+  SEDAN = 1;
+  COUPE = 2;
+  SUV = 3;
 }

@@ -13,10 +13,12 @@ fun\madeby\models\Address.class
 fun\madeby\models\Dealer$ModelDefaultEntryHolder.class
 fun\madeby\models\AddressOrBuilder.class
 fun\madeby\protobuf\PerformanceTest.class
+fun\madeby\models\BodyStyle.class
 fun\madeby\models\PersonOuterClass$1.class
 fun\madeby\models\Car$Builder.class
 fun\madeby\models\Person.class
 fun\madeby\models\json\JPerson.class
+fun\madeby\models\BodyStyle$1.class
 fun\madeby\models\Address$1.class
 fun\madeby\models\Dealer$1.class
 fun\madeby\models\Dealer$Builder.class

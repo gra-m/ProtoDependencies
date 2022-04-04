@@ -22,6 +22,7 @@ public class _02_MapDemo {
                 .setModel("Cooper")
                 .setYear(1914)
                 .setAvMarketValue(18.67)
+                .setBodyStyleValue(1)
                 .build();
 
         Dealer dealer = Dealer.newBuilder()
@@ -31,7 +32,8 @@ public class _02_MapDemo {
 
         System.out.println(dealer.getModelCount());
         System.out.println(dealer.getModelOrDefault(2020, f1));
-        System.out.println(dealer.getModelOrThrow(1918));
+        System.out.println(dealer.getModelOrThrow(2020).getBodyStyle());
+        System.out.println(dealer.getModelOrThrow(1914).getBodyStyle());
     }
 
 }

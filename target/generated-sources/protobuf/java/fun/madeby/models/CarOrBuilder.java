@@ -36,4 +36,13 @@ public interface CarOrBuilder extends
    * <code>double avMarketValue = 4;</code>
    */
   double getAvMarketValue();
+
+  /**
+   * <code>.BodyStyle body_style = 5;</code>
+   */
+  int getBodyStyleValue();
+  /**
+   * <code>.BodyStyle body_style = 5;</code>
+   */
+  fun.madeby.models.BodyStyle getBodyStyle();
 }

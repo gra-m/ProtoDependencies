@@ -20,6 +20,7 @@ private static final long serialVersionUID = 0L;
     model_ = "";
     year_ = 0;
     avMarketValue_ = 0D;
+    bodyStyle_ = 0;
   }
 
   @java.lang.Override
@@ -66,6 +67,12 @@ private static final long serialVersionUID = 0L;
           case 33: {
 
             avMarketValue_ = input.readDouble();
+            break;
+          }
+          case 40: {
+            int rawValue = input.readEnum();
+
+            bodyStyle_ = rawValue;
             break;
           }
           default: {
@@ -186,6 +193,23 @@ private static final long serialVersionUID = 0L;
     return avMarketValue_;
   }
 
+  public static final int BODY_STYLE_FIELD_NUMBER = 5;
+  private int bodyStyle_;
+  /**
+   * <code>.BodyStyle body_style = 5;</code>
+   */
+  public int getBodyStyleValue() {
+    return bodyStyle_;
+  }
+  /**
+   * <code>.BodyStyle body_style = 5;</code>
+   */
+  public fun.madeby.models.BodyStyle getBodyStyle() {
+    @SuppressWarnings("deprecation")
+    fun.madeby.models.BodyStyle result = fun.madeby.models.BodyStyle.valueOf(bodyStyle_);
+    return result == null ? fun.madeby.models.BodyStyle.UNRECOGNIZED : result;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -212,6 +236,9 @@ private static final long serialVersionUID = 0L;
     if (avMarketValue_ != 0D) {
       output.writeDouble(4, avMarketValue_);
     }
+    if (bodyStyle_ != fun.madeby.models.BodyStyle.DEFAULT.getNumber()) {
+      output.writeEnum(5, bodyStyle_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -234,6 +261,10 @@ private static final long serialVersionUID = 0L;
     if (avMarketValue_ != 0D) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(4, avMarketValue_);
+    }
+    if (bodyStyle_ != fun.madeby.models.BodyStyle.DEFAULT.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(5, bodyStyle_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -261,6 +292,7 @@ private static final long serialVersionUID = 0L;
         java.lang.Double.doubleToLongBits(getAvMarketValue())
         == java.lang.Double.doubleToLongBits(
             other.getAvMarketValue()));
+    result = result && bodyStyle_ == other.bodyStyle_;
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -281,6 +313,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + AVMARKETVALUE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getAvMarketValue()));
+    hash = (37 * hash) + BODY_STYLE_FIELD_NUMBER;
+    hash = (53 * hash) + bodyStyle_;
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -422,6 +456,8 @@ private static final long serialVersionUID = 0L;
 
       avMarketValue_ = 0D;
 
+      bodyStyle_ = 0;
+
       return this;
     }
 
@@ -452,6 +488,7 @@ private static final long serialVersionUID = 0L;
       result.model_ = model_;
       result.year_ = year_;
       result.avMarketValue_ = avMarketValue_;
+      result.bodyStyle_ = bodyStyle_;
       onBuilt();
       return result;
     }
@@ -513,6 +550,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getAvMarketValue() != 0D) {
         setAvMarketValue(other.getAvMarketValue());
+      }
+      if (other.bodyStyle_ != 0) {
+        setBodyStyleValue(other.getBodyStyleValue());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -729,6 +769,51 @@ private static final long serialVersionUID = 0L;
     public Builder clearAvMarketValue() {
       
       avMarketValue_ = 0D;
+      onChanged();
+      return this;
+    }
+
+    private int bodyStyle_ = 0;
+    /**
+     * <code>.BodyStyle body_style = 5;</code>
+     */
+    public int getBodyStyleValue() {
+      return bodyStyle_;
+    }
+    /**
+     * <code>.BodyStyle body_style = 5;</code>
+     */
+    public Builder setBodyStyleValue(int value) {
+      bodyStyle_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.BodyStyle body_style = 5;</code>
+     */
+    public fun.madeby.models.BodyStyle getBodyStyle() {
+      @SuppressWarnings("deprecation")
+      fun.madeby.models.BodyStyle result = fun.madeby.models.BodyStyle.valueOf(bodyStyle_);
+      return result == null ? fun.madeby.models.BodyStyle.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.BodyStyle body_style = 5;</code>
+     */
+    public Builder setBodyStyle(fun.madeby.models.BodyStyle value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      bodyStyle_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.BodyStyle body_style = 5;</code>
+     */
+    public Builder clearBodyStyle() {
+      
+      bodyStyle_ = 0;
       onChanged();
       return this;
     }
