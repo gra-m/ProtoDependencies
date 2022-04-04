@@ -1,6 +1,7 @@
 package fun.madeby.protobuf;
 
 
+import com.google.protobuf.Int32Value;
 import fun.madeby.models.Person;
 
 import java.io.IOException;
@@ -16,7 +17,8 @@ public class PersonDemo {
     public static void main(String[] args) throws IOException {
        Person sam = Person.newBuilder()
                .setName("sam")
-               .setAge(10)
+               // no autoboxing but now Person.hasAge() is available
+               .setAge(Int32Value.newBuilder().setValue(10).build())
                .build();
 
         System.out.println("Original\n" + sam);
@@ -30,6 +32,8 @@ public class PersonDemo {
        Person newSam = Person.parseFrom(retrievedByteArray);
 
        System.out.println("Retrieved\n" + newSam);
+
+
 
 
 

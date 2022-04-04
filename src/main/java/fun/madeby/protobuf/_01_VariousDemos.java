@@ -1,10 +1,9 @@
 package fun.madeby.protobuf;
 
-
+import com.google.protobuf.Int32Value;
 import fun.madeby.models.Address;
 import fun.madeby.models.Car;
 import fun.madeby.models.Person;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +41,8 @@ public class _01_VariousDemos {
 
         Person sam = Person.newBuilder()
                 .setName("sam")
-                .setAge(19)
+                // no autoboxing but now Person.hasAge() is available
+                .setAge(Int32Value.newBuilder().setValue(19).build())
                 .setAddress(address)
                 .addAllCar(carList)
                 .build();

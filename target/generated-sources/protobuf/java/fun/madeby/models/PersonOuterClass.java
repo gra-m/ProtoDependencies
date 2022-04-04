@@ -29,10 +29,11 @@ public final class PersonOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\014person.proto\032\020common/car.proto\032\024common" +
-      "/address.proto\"Q\n\006Person\022\014\n\004name\030\001 \001(\t\022\013" +
-      "\n\003age\030\002 \001(\005\022\031\n\007address\030\003 \001(\0132\010.Address\022\021" +
-      "\n\003car\030\004 \003(\0132\004.CarB\025\n\021fun.madeby.modelsP\001" +
-      "b\006proto3"
+      "/address.proto\032\036google/protobuf/wrappers" +
+      ".proto\"n\n\006Person\022\014\n\004name\030\001 \001(\t\022(\n\003age\030\002 " +
+      "\001(\0132\033.google.protobuf.Int32Value\022\031\n\007addr" +
+      "ess\030\003 \001(\0132\010.Address\022\021\n\003car\030\004 \003(\0132\004.CarB\025" +
+      "\n\021fun.madeby.modelsP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -47,6 +48,7 @@ public final class PersonOuterClass {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           fun.madeby.models.CarOuterClass.getDescriptor(),
           fun.madeby.models.AddressOuterClass.getDescriptor(),
+          com.google.protobuf.WrappersProto.getDescriptor(),
         }, assigner);
     internal_static_Person_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -56,6 +58,7 @@ public final class PersonOuterClass {
         new java.lang.String[] { "Name", "Age", "Address", "Car", });
     fun.madeby.models.CarOuterClass.getDescriptor();
     fun.madeby.models.AddressOuterClass.getDescriptor();
+    com.google.protobuf.WrappersProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

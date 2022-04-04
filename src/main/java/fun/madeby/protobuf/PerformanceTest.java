@@ -1,6 +1,7 @@
 package fun.madeby.protobuf;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.protobuf.Int32Value;
 import com.google.protobuf.InvalidProtocolBufferException;
 import fun.madeby.models.Person;
 import fun.madeby.models.json.JPerson;
@@ -31,7 +32,7 @@ public class PerformanceTest {
         // Protobuf serialize/deserialize
         Person person1 = Person.newBuilder()
                 .setName("sam")
-                .setAge(10)
+                .setAge(Int32Value.newBuilder().setValue(10).build())
                 .build();
 
         Runnable runnable2 = () -> {

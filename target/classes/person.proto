@@ -1,13 +1,15 @@
 syntax = "proto3";
 import "common/car.proto";
 import "common/address.proto";
+// protobuf wrappers are not autoboxed
+import "google/protobuf/wrappers.proto";
 
 option java_multiple_files = true;
 option java_package = "fun.madeby.models";
 
 message Person {
   string name = 1;
-  int32 age = 2;
+  google.protobuf.Int32Value age = 2;
   Address address = 3;
   repeated Car car = 4;
 }
